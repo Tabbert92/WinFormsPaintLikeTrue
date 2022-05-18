@@ -5,37 +5,22 @@ namespace PaintLikeCore
 {
     public class DrawingPointsArray
     {
-        private int _index;
-        private Point[] _points;
+        public int Index { get; set; }
+        public Point[] Points { get; }
 
         public DrawingPointsArray(int size)
         {
-            _points = new Point[size];
+            Points = new Point[size];
         }
 
         public void SetPoint(int x, int y)
         {
-            if (_index >= _points.Length)
+            if (Index >= Points.Length)
             {
-                _index = 0;
+                Index = 0;
             }
-            _points[_index] = new Point(x, y);
-            _index++;
-        }
-
-        public void RestPointIndex()
-        {
-            _index = 0;
-        }
-
-        public int GetPointIndex()
-        {
-            return _index;
-        }
-
-        public Point[] GetPoints()
-        {
-            return _points;
+            Points[Index] = new Point(x, y);
+            Index++;
         }
     }
 }

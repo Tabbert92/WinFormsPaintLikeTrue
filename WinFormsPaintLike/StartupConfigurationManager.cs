@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using PaintLikeCore;
 
@@ -24,7 +19,9 @@ namespace WinFormsPaintLike
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
 
-            return new PaintLike(drawingPointsArray, bitMap, graphics, pen);
+            DrawingManager drawingManager = new DrawingManager(drawingPointsArray, bitMap, graphics, pen);
+
+            return new PaintLike(drawingManager);
         }
     }
 }

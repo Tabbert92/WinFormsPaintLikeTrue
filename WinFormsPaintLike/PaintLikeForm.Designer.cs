@@ -33,6 +33,8 @@
             this.colorButton = new System.Windows.Forms.Button();
             this.toolsPanel = new System.Windows.Forms.Panel();
             this.clearButton = new System.Windows.Forms.Button();
+            this.colorDialog = new System.Windows.Forms.ColorDialog();
+            this.ShowColorBotton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -66,12 +68,14 @@
             this.colorButton.TabIndex = 2;
             this.colorButton.Text = "color";
             this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.colorButton_Click);
             // 
             // toolsPanel
             // 
             this.toolsPanel.AutoSize = true;
             this.toolsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.toolsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolsPanel.Controls.Add(this.ShowColorBotton);
             this.toolsPanel.Controls.Add(this.clearButton);
             this.toolsPanel.Controls.Add(this.penButton);
             this.toolsPanel.Controls.Add(this.colorButton);
@@ -90,6 +94,14 @@
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // ShowColorBotton
+            // 
+            this.ShowColorBotton.Location = new System.Drawing.Point(93, 40);
+            this.ShowColorBotton.Name = "ShowColorBotton";
+            this.ShowColorBotton.Size = new System.Drawing.Size(23, 23);
+            this.ShowColorBotton.TabIndex = 4;
+            this.ShowColorBotton.UseVisualStyleBackColor = true;
             // 
             // PaintLike
             // 
@@ -117,5 +129,7 @@
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.Panel toolsPanel;
         private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.ColorDialog colorDialog;
+        private System.Windows.Forms.Button ShowColorBotton;
     }
 }
