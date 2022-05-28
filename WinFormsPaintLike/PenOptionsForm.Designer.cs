@@ -54,7 +54,7 @@
             this.ApplyBotton.TabIndex = 1;
             this.ApplyBotton.Text = "Аpply";
             this.ApplyBotton.UseVisualStyleBackColor = true;
-            this.ApplyBotton.Click += new System.EventHandler(this.button1_Click);
+            this.ApplyBotton.Click += new System.EventHandler(this.ApplyBottonClick);
             // 
             // label1
             // 
