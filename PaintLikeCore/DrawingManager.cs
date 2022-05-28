@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.Dynamic;
 
 namespace PaintLikeCore
 {
@@ -7,14 +8,15 @@ namespace PaintLikeCore
         private readonly DrawingPointsArray _drawingPointArray;
         private readonly Bitmap _bitmap;
         private readonly Graphics _graphics;
-        private readonly Pen _pen;
+
+        public Pen Pen { get; }
 
         public DrawingManager(DrawingPointsArray drawingPointArray, Bitmap bitmap, Graphics graphics, Pen pen)
         {
             _drawingPointArray = drawingPointArray;
             _bitmap = bitmap;
             _graphics = graphics;
-            _pen = pen;
+            Pen = pen;
         }
 
         public Bitmap StartDrawingLine(int x, int y)
@@ -22,7 +24,7 @@ namespace PaintLikeCore
             _drawingPointArray.SetPoint(x, y);
             if (_drawingPointArray.Index >= 2)
             {
-                _graphics.DrawLines(_pen, _drawingPointArray.Points);
+                _graphics.DrawLines(Pen, _drawingPointArray.Points);
                 _drawingPointArray.SetPoint(x, y);
             }
 
@@ -37,11 +39,6 @@ namespace PaintLikeCore
         {
             _graphics.Clear(color);
             return _bitmap;
-        }
-
-        public void ChangePenColor(Color color)
-        {
-            _pen.Color = color;
         }
     }
 }

@@ -19,9 +19,10 @@ namespace WinFormsPaintLike
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
 
-            DrawingManager drawingManager = new DrawingManager(drawingPointsArray, bitMap, graphics, pen);
+            var drawingManager = new DrawingManager(drawingPointsArray, bitMap, graphics, pen);
+            var penOptionsForm = new PenOptionsForm(drawingManager);
 
-            return new PaintLike(drawingManager);
+            return new PaintLike(drawingManager, penOptionsForm);
         }
     }
 }

@@ -1,0 +1,111 @@
+﻿namespace WinFormsPaintLike
+{
+    partial class PenOptionsForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.PenWidthTrackBar = new System.Windows.Forms.TrackBar();
+            this.ApplyBotton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CurrentWidthLabel = new System.Windows.Forms.Label();
+            this.PenWidthNumberTextBox = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.PenWidthTrackBar)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // PenWidthTrackBar
+            // 
+            this.PenWidthTrackBar.Location = new System.Drawing.Point(12, 61);
+            this.PenWidthTrackBar.Minimum = 1;
+            this.PenWidthTrackBar.Name = "PenWidthTrackBar";
+            this.PenWidthTrackBar.Size = new System.Drawing.Size(194, 45);
+            this.PenWidthTrackBar.TabIndex = 0;
+            this.PenWidthTrackBar.Value = 1;
+            this.PenWidthTrackBar.ValueChanged += new System.EventHandler(this.PenLengthTrackBarValueChanged);
+            // 
+            // ApplyBotton
+            // 
+            this.ApplyBotton.Location = new System.Drawing.Point(54, 112);
+            this.ApplyBotton.Name = "ApplyBotton";
+            this.ApplyBotton.Size = new System.Drawing.Size(106, 34);
+            this.ApplyBotton.TabIndex = 1;
+            this.ApplyBotton.Text = "Аpply";
+            this.ApplyBotton.UseVisualStyleBackColor = true;
+            this.ApplyBotton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "CurrentLWidth";
+            // 
+            // CurrentWidthLabel
+            // 
+            this.CurrentWidthLabel.AutoSize = true;
+            this.CurrentWidthLabel.Location = new System.Drawing.Point(102, 22);
+            this.CurrentWidthLabel.Name = "CurrentWidthLabel";
+            this.CurrentWidthLabel.Size = new System.Drawing.Size(25, 15);
+            this.CurrentWidthLabel.TabIndex = 3;
+            this.CurrentWidthLabel.Text = "100";
+            // 
+            // PenWidthNumberTextBox
+            // 
+            this.PenWidthNumberTextBox.Location = new System.Drawing.Point(149, 19);
+            this.PenWidthNumberTextBox.Name = "PenWidthNumberTextBox";
+            this.PenWidthNumberTextBox.Size = new System.Drawing.Size(57, 23);
+            this.PenWidthNumberTextBox.TabIndex = 4;
+            this.PenWidthNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PenLengthNumberTextBoxKeyPress);
+            // 
+            // PenOptionsForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(218, 158);
+            this.Controls.Add(this.PenWidthNumberTextBox);
+            this.Controls.Add(this.CurrentWidthLabel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ApplyBotton);
+            this.Controls.Add(this.PenWidthTrackBar);
+            this.Name = "PenOptionsForm";
+            this.Text = "Pen length";
+            ((System.ComponentModel.ISupportInitialize)(this.PenWidthTrackBar)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TrackBar PenWidthTrackBar;
+        private System.Windows.Forms.Button ApplyBotton;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CurrentWidthLabel;
+        private System.Windows.Forms.TextBox PenWidthNumberTextBox;
+    }
+}
