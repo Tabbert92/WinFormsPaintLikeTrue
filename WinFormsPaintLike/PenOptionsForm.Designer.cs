@@ -26,12 +26,11 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(int minPenWidht, int maxPenWidht)
         {
             this.PenWidthTrackBar = new System.Windows.Forms.TrackBar();
             this.ApplyBotton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.CurrentWidthLabel = new System.Windows.Forms.Label();
             this.PenWidthNumberTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PenWidthTrackBar)).BeginInit();
             this.SuspendLayout();
@@ -39,7 +38,8 @@
             // PenWidthTrackBar
             // 
             this.PenWidthTrackBar.Location = new System.Drawing.Point(12, 61);
-            this.PenWidthTrackBar.Minimum = 1;
+            this.PenWidthTrackBar.Maximum = maxPenWidht;
+            this.PenWidthTrackBar.Minimum = minPenWidht;
             this.PenWidthTrackBar.Name = "PenWidthTrackBar";
             this.PenWidthTrackBar.Size = new System.Drawing.Size(194, 45);
             this.PenWidthTrackBar.TabIndex = 0;
@@ -65,18 +65,9 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "CurrentLWidth";
             // 
-            // CurrentWidthLabel
-            // 
-            this.CurrentWidthLabel.AutoSize = true;
-            this.CurrentWidthLabel.Location = new System.Drawing.Point(102, 22);
-            this.CurrentWidthLabel.Name = "CurrentWidthLabel";
-            this.CurrentWidthLabel.Size = new System.Drawing.Size(25, 15);
-            this.CurrentWidthLabel.TabIndex = 3;
-            this.CurrentWidthLabel.Text = "100";
-            // 
             // PenWidthNumberTextBox
             // 
-            this.PenWidthNumberTextBox.Location = new System.Drawing.Point(149, 19);
+            this.PenWidthNumberTextBox.Location = new System.Drawing.Point(140, 19);
             this.PenWidthNumberTextBox.Name = "PenWidthNumberTextBox";
             this.PenWidthNumberTextBox.Size = new System.Drawing.Size(57, 23);
             this.PenWidthNumberTextBox.TabIndex = 4;
@@ -88,7 +79,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(218, 158);
             this.Controls.Add(this.PenWidthNumberTextBox);
-            this.Controls.Add(this.CurrentWidthLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ApplyBotton);
             this.Controls.Add(this.PenWidthTrackBar);
@@ -105,7 +95,6 @@
         private System.Windows.Forms.TrackBar PenWidthTrackBar;
         private System.Windows.Forms.Button ApplyBotton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label CurrentWidthLabel;
         private System.Windows.Forms.TextBox PenWidthNumberTextBox;
     }
 }

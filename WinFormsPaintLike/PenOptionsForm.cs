@@ -8,64 +8,50 @@ namespace WinFormsPaintLike
     {
         private readonly DrawingManager _drawingManager;
         private float _penWidth;
-
+        private const int MinPenWidht = 1;
+        private const int MaxPenWidht = 50;
         public PenOptionsForm(DrawingManager drawingManager)
         {
-            InitializeComponent();
+            InitializeComponent(MinPenWidht, MaxPenWidht);
             _drawingManager = drawingManager;
-            CurrentWidthLabel.Text = _drawingManager.Pen.Width.ToString();
+            PenWidthNumberTextBox.Text = _drawingManager.Pen.Width.ToString();
         }
 
         private void PenLengthNumberTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar is >= '0' and <= '9')
-            {
-                return;
-            }
-
-            if (Char.IsControl(e.KeyChar))
+            if (char.IsControl(e.KeyChar) || char.IsDigit(e.KeyChar))
             {
                 if (e.KeyChar == (char)Keys.Enter)
                 {
-                    var parsResult = PenWidthNumberParser(PenWidthNumberTextBox.Text);
-                    if (parsResult != -1)
+                    if (float.TryParse(PenWidthNumberTextBox.Text, out var parsResult))
                     {
-                        if (parsResult <= 50)
+                        if (parsResult < MinPenWidht)
                         {
-                            _penWidth = parsResult;
-                            CurrentWidthLabel.Text = parsResult.ToString();
+                            _penWidth = MinPenWidht;
+                            PenWidthNumberTextBox.Text = MinPenWidht.ToString();
+                        }
+                        else if (parsResult > MaxPenWidht)
+                        {
+                            _penWidth = MaxPenWidht;
+                            PenWidthNumberTextBox.Text = MaxPenWidht.ToString();
                         }
                         else
                         {
-                            _penWidth = 50;
-                            CurrentWidthLabel.Text = "50";
+                            _penWidth = parsResult;
+                            PenWidthNumberTextBox.Text = parsResult.ToString();
                         }
                     }
                 }
                 return;
             }
-
             e.Handled = true;
         }
 
         private void PenLengthTrackBarValueChanged(object sender, EventArgs e)
         {
-            CurrentWidthLabel.Text = PenWidthTrackBar.Value.ToString();
+            PenWidthNumberTextBox.Text = PenWidthTrackBar.Value.ToString();
             _penWidth = PenWidthTrackBar.Value;
         }
-
-        private float PenWidthNumberParser(string numberForParsing)
-        {
-            try
-            {
-                return float.Parse(numberForParsing);
-            }
-            catch (Exception e)
-            {
-                return -1;
-            }
-        }
-
         private void ApplyBottonClick(object sender, EventArgs e)
         {
             _drawingManager.Pen.Width = _penWidth;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Autofac;
 
 namespace WinFormsPaintLike
 {
@@ -18,8 +19,9 @@ namespace WinFormsPaintLike
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var startupManager = new StartupConfigurationManager();
-            Application.Run(startupManager.ConfigurateApplication());
+            var container = ContainerConfig.Configure();
+            using var scope = container.BeginLifetimeScope();
+            Application.Run(scope.Resolve<PaintLike>());
         }
     }
 }

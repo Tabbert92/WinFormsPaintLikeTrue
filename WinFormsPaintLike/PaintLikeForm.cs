@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using PaintLikeCore;
 
@@ -53,6 +54,32 @@ namespace WinFormsPaintLike
         {
             _penOptionsForm.ShowDialog();
             PenWidthLabel.Text = _drawingManager.Pen.Width.ToString();
+        }
+
+        private void SaveButtonClick(object sender, EventArgs e)
+        {
+            saveFileDialog.Filter = "JPG(*.JPG)|*.jpg";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox.Image.Save(saveFileDialog.FileName);
+            }
+        }
+
+        private void LoadButtonClick(object sender, EventArgs e)
+        {
+            openFileDialog.Filter = "Image files(*.BMP;*.JPG;*.PNG)|*.bmp;*.jpg;*.png|All files (*.*)|*.*";
+            if(openFileDialog.ShowDialog()== DialogResult.OK)
+            {
+                try
+                {
+                    var loadedBitMap = new Bitmap(openFileDialog.FileName);
+                    pictureBox.Image = _drawingManager.LoadBitmap(loadedBitMap);
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+            }
         }
     }
 }

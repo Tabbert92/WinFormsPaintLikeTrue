@@ -1,22 +1,28 @@
 ﻿using System.Drawing;
 using System.Dynamic;
+using System.Windows.Forms;
 
 namespace PaintLikeCore
 {
     public class DrawingManager
     {
         private readonly DrawingPointsArray _drawingPointArray;
-        private readonly Bitmap _bitmap;
-        private readonly Graphics _graphics;
+        private Graphics _graphics;
+        private Bitmap _bitMap;
 
         public Pen Pen { get; }
 
-        public DrawingManager(DrawingPointsArray drawingPointArray, Bitmap bitmap, Graphics graphics, Pen pen)
+        public DrawingManager(DrawingPointsArray drawingPointArray)
         {
             _drawingPointArray = drawingPointArray;
-            _bitmap = bitmap;
-            _graphics = graphics;
-            Pen = pen;
+
+            Rectangle rectangle = Screen.PrimaryScreen.Bounds;
+            _bitMap = new Bitmap(rectangle.Width, rectangle.Height);
+            _graphics = Graphics.FromImage(_bitMap);
+
+            Pen = new Pen(Color.Black, 3f);
+            Pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            Pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
         }
 
         public Bitmap StartDrawingLine(int x, int y)
@@ -28,7 +34,7 @@ namespace PaintLikeCore
                 _drawingPointArray.SetPoint(x, y);
             }
 
-            return _bitmap;
+            return _bitMap;
         }
 
         public void StopDrawingLine()
@@ -38,7 +44,14 @@ namespace PaintLikeCore
         public Bitmap Clear(Color color)
         {
             _graphics.Clear(color);
-            return _bitmap;
+            return _bitMap;
+        }
+
+        public Bitmap LoadBitmap(Bitmap loadedBitmap)
+        {
+            _bitMap = loadedBitmap;
+            _graphics = Graphics.FromImage(_bitMap);
+            return _bitMap;
         }
     }
 }

@@ -10,16 +10,7 @@ namespace WinFormsPaintLike
         {
             DrawingPointsArray drawingPointsArray = new DrawingPointsArray(2);
 
-            Rectangle rectangle = Screen.PrimaryScreen.Bounds;
-            var bitMap = new Bitmap(rectangle.Width, rectangle.Height);
-
-            var graphics = Graphics.FromImage(bitMap);
-
-            var pen = new Pen(Color.Black, 3f);
-            pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
-            pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
-
-            var drawingManager = new DrawingManager(drawingPointsArray, bitMap, graphics, pen);
+            var drawingManager = new DrawingManager(drawingPointsArray);
             var penOptionsForm = new PenOptionsForm(drawingManager);
 
             return new PaintLike(drawingManager, penOptionsForm);

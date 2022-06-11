@@ -32,10 +32,14 @@
             this.PenButton = new System.Windows.Forms.Button();
             this.colorButton = new System.Windows.Forms.Button();
             this.toolsPanel = new System.Windows.Forms.Panel();
+            this.loadButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.PenWidthLabel = new System.Windows.Forms.Label();
             this.ShowColorBotton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.PenWidthLabel = new System.Windows.Forms.Label();
+            this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.toolsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -77,6 +81,8 @@
             this.toolsPanel.AutoSize = true;
             this.toolsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.toolsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolsPanel.Controls.Add(this.loadButton);
+            this.toolsPanel.Controls.Add(this.saveButton);
             this.toolsPanel.Controls.Add(this.PenWidthLabel);
             this.toolsPanel.Controls.Add(this.ShowColorBotton);
             this.toolsPanel.Controls.Add(this.clearButton);
@@ -88,23 +94,25 @@
             this.toolsPanel.Size = new System.Drawing.Size(1210, 69);
             this.toolsPanel.TabIndex = 3;
             // 
-            // ShowColorBotton
+            // loadButton
             // 
-            this.ShowColorBotton.Location = new System.Drawing.Point(93, 40);
-            this.ShowColorBotton.Name = "ShowColorBotton";
-            this.ShowColorBotton.Size = new System.Drawing.Size(23, 23);
-            this.ShowColorBotton.TabIndex = 4;
-            this.ShowColorBotton.UseVisualStyleBackColor = true;
+            this.loadButton.Location = new System.Drawing.Point(1122, 40);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(75, 23);
+            this.loadButton.TabIndex = 7;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.LoadButtonClick);
             // 
-            // clearButton
+            // saveButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(1123, 12);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 3;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
+            this.saveButton.Location = new System.Drawing.Point(1122, 11);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 6;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.SaveButtonClick);
             // 
             // PenWidthLabel
             // 
@@ -115,6 +123,28 @@
             this.PenWidthLabel.TabIndex = 5;
             this.PenWidthLabel.Text = "3";
             this.PenWidthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ShowColorBotton
+            // 
+            this.ShowColorBotton.Location = new System.Drawing.Point(93, 40);
+            this.ShowColorBotton.Name = "ShowColorBotton";
+            this.ShowColorBotton.Size = new System.Drawing.Size(23, 23);
+            this.ShowColorBotton.TabIndex = 4;
+            this.ShowColorBotton.UseVisualStyleBackColor = true;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(1041, 12);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 3;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.ClearButtonClick);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
             // 
             // PaintLike
             // 
@@ -145,5 +175,9 @@
         private System.Windows.Forms.ColorDialog colorDialog;
         private System.Windows.Forms.Button ShowColorBotton;
         private System.Windows.Forms.Label PenWidthLabel;
+        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
