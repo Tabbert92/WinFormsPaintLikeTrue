@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.PenButton = new System.Windows.Forms.Button();
+            this.PenWidhtButton = new System.Windows.Forms.Button();
             this.colorButton = new System.Windows.Forms.Button();
             this.toolsPanel = new System.Windows.Forms.Panel();
+            this.PenButton = new System.Windows.Forms.Button();
+            this.FillButton = new System.Windows.Forms.Button();
             this.loadButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.PenWidthLabel = new System.Windows.Forms.Label();
@@ -56,15 +58,15 @@
             this.pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMouseMove);
             this.pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBoxMouseUp);
             // 
-            // PenButton
+            // PenWidhtButton
             // 
-            this.PenButton.Location = new System.Drawing.Point(12, 12);
-            this.PenButton.Name = "PenButton";
-            this.PenButton.Size = new System.Drawing.Size(75, 23);
-            this.PenButton.TabIndex = 1;
-            this.PenButton.Text = "pen";
-            this.PenButton.UseVisualStyleBackColor = true;
-            this.PenButton.Click += new System.EventHandler(this.PenButtonClick);
+            this.PenWidhtButton.Location = new System.Drawing.Point(12, 12);
+            this.PenWidhtButton.Name = "PenWidhtButton";
+            this.PenWidhtButton.Size = new System.Drawing.Size(75, 23);
+            this.PenWidhtButton.TabIndex = 1;
+            this.PenWidhtButton.Text = "widht";
+            this.PenWidhtButton.UseVisualStyleBackColor = true;
+            this.PenWidhtButton.Click += new System.EventHandler(this.WidthButtonClick);
             // 
             // colorButton
             // 
@@ -81,18 +83,40 @@
             this.toolsPanel.AutoSize = true;
             this.toolsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.toolsPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolsPanel.Controls.Add(this.PenButton);
+            this.toolsPanel.Controls.Add(this.FillButton);
             this.toolsPanel.Controls.Add(this.loadButton);
             this.toolsPanel.Controls.Add(this.saveButton);
             this.toolsPanel.Controls.Add(this.PenWidthLabel);
             this.toolsPanel.Controls.Add(this.ShowColorBotton);
             this.toolsPanel.Controls.Add(this.clearButton);
-            this.toolsPanel.Controls.Add(this.PenButton);
+            this.toolsPanel.Controls.Add(this.PenWidhtButton);
             this.toolsPanel.Controls.Add(this.colorButton);
             this.toolsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolsPanel.Location = new System.Drawing.Point(0, 0);
             this.toolsPanel.Name = "toolsPanel";
             this.toolsPanel.Size = new System.Drawing.Size(1210, 69);
             this.toolsPanel.TabIndex = 3;
+            // 
+            // PenButton
+            // 
+            this.PenButton.Location = new System.Drawing.Point(122, 11);
+            this.PenButton.Name = "PenButton";
+            this.PenButton.Size = new System.Drawing.Size(75, 23);
+            this.PenButton.TabIndex = 9;
+            this.PenButton.Text = "pen";
+            this.PenButton.UseVisualStyleBackColor = true;
+            this.PenButton.Click += new System.EventHandler(this.PenButtonClick);
+            // 
+            // FillButton
+            // 
+            this.FillButton.Location = new System.Drawing.Point(122, 40);
+            this.FillButton.Name = "FillButton";
+            this.FillButton.Size = new System.Drawing.Size(75, 23);
+            this.FillButton.TabIndex = 8;
+            this.FillButton.Text = "fill";
+            this.FillButton.UseVisualStyleBackColor = true;
+            this.FillButton.Click += new System.EventHandler(this.FillButtonClick);
             // 
             // loadButton
             // 
@@ -168,7 +192,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button PenButton;
+        private System.Windows.Forms.Button PenWidhtButton;
         private System.Windows.Forms.Button colorButton;
         private System.Windows.Forms.Panel toolsPanel;
         private System.Windows.Forms.Button clearButton;
@@ -179,5 +203,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.Button FillButton;
+        private System.Windows.Forms.Button PenButton;
     }
 }

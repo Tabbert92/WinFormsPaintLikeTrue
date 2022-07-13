@@ -83,7 +83,7 @@
             this.Controls.Add(this.ApplyBotton);
             this.Controls.Add(this.PenWidthTrackBar);
             this.Name = "PenOptionsForm";
-            this.Text = "Pen length";
+            this.Text = "_pen length";
             ((System.ComponentModel.ISupportInitialize)(this.PenWidthTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

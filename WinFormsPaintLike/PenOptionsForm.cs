@@ -55,7 +55,7 @@ namespace WinFormsPaintLike
         private void ApplyBottonClick(object sender, EventArgs e)
         {
             _drawingManager.Pen.Width = _penWidth;
-            this.Hide();
+            Hide();
         }
     }
 }

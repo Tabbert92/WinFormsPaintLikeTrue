@@ -1,9 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Autofac;
+using PaintLikeCore;
 
 namespace WinFormsPaintLike
 {
@@ -19,9 +17,16 @@ namespace WinFormsPaintLike
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var container = ContainerConfig.Configure();
-            using var scope = container.BeginLifetimeScope();
-            Application.Run(scope.Resolve<PaintLike>());
+            var container = BuildContainer();
+            Application.Run(container.Resolve<PaintLike>());
+        }
+
+        static IContainer BuildContainer()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<WinFormsModule>();
+            builder.RegisterModule<CoreModule>();
+            return builder.Build();
         }
     }
 }
